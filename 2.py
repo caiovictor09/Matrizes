@@ -7,11 +7,13 @@ def criarMatriz():
     for i in range(ordem):
         linha = []
         for j in range(ordem):
-            try:
-                linha.append(int(input(f"Digite o elemento [{i}][{j}]: ")))
-            except:
-                print("Digite uma entrada válida.")
-        matriz.append(linha)
+            elemento = None
+            while elemento is None:
+                try:
+                    elemento = int(input(f"Digite o elemento[{i}][{j}]"))   
+                except ValueError:
+                    print("Digite um valor válido.")
+
 
     return matriz
 
