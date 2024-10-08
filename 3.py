@@ -37,8 +37,6 @@ def determinante(matriz, ordem):
             for linha in range(1,ordem):
                 submatriz.append(list(matriz[linha][:j]) + list(matriz[linha][j+1:]))
                 
-        
-
 def matrizCofatores(matriz, ordem):
     cofatores = []
     

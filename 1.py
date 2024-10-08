@@ -30,7 +30,7 @@ def matrizTriangularInferior(matriz):
         linha = []
         for j in range(colunas):
             if j <= i:
-                linha.append(random.randint(-7, 7))
+                linha.append(random.randint(-10, 10))
             else:
                 linha.append(0)
         triangularInferior.append(linha)
