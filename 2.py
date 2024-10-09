@@ -1,25 +1,32 @@
 import numpy as np
 
-def escalonar(matriz):
-    
+def escalonar_matriz(matriz):
+    linhas, colunas = matriz.shape
+    for i in range(linhas):
+        if matriz[i, i] == 0:
+            continue
+
+        # Zerando os valores abaixo do pivô
+        for j in range(i + 1, linhas):
+            fator = matriz[j, i] / matriz[i, i]
+            matriz[j] = matriz[j] - fator * matriz[i]
 
     return matriz
 
-def criar_matriz():
+def main():
+    # Entrada do usuário
     ordem = int(input("Digite a ordem da matriz: "))
-    matriz = []
+    matriz = np.zeros((ordem, ordem))
 
+    # Preenchendo a matriz
+    print("Digite os elementos da matriz:")
     for i in range(ordem):
-        linha = []
-        for j in range(ordem):
-            valor = float(input(f"Digite o elemento[{i}][{j}]: "))
-            linha.append(valor)
-        matriz.append(linha)
+        matriz[i] = list(map(float, input(f"Digite os elementos da linha {i + 1}: ").split()))
 
-    return np.array(matriz)
-
-
-
+    # Exibindo a matriz escalonada
+    matriz_escalonada = escalonar_matriz(matriz)
+    print("Matriz escalonada:")
+    print(matriz_escalonada)
 
 if __name__ == "__main__":
-    pass
+    main()
